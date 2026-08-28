@@ -4,7 +4,7 @@ This is your personal repository for **WEB 1430: Client-Side Web Development** a
 
 **Student:** Corbin Taylor
 
-**Course goal:** Learn how to create effective websites.
+**Course goal:** Learn how to create effective websites and learn more about HTML, CSS, and JavaScript.
 ## Repository structure
 
 ```
