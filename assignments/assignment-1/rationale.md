@@ -1,0 +1,3 @@
+# Rationale
+
+The intended audience of this page is students at Weber State University. I chose to use `<section>` tags because I didn't have any major bodies of text. For the frozen yogurt flavors, I chose to use an unordered list because it seemed appropriate for organizing the flavors. The most challenging CSS decision I had was probably deciding how to distinguish the unordered lists. I ended up creating a specific style for the flavor cards using a class as a way of implementing styles directly to them and not the other unordered lists. If I had more time, I would make the unordered list items more distinguishable. Right now, they seem to blend together. It would probably look nicer if there was some sort of divider between the items. 
