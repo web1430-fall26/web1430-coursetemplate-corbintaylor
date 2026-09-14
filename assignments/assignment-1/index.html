@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0".
+    <title>Chilly Rock Frozen Yogurt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="brand">Chilly Rock Frozen Yogurt</a>
+            <ul>
+                <li><a href="#flavors">Flavors</a></li>
+                <li><a href="#locations">Locations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Cool Treats for Hot Days</h1>
+            <figure>
+                <img src="images/mango_frzn_ygrt.jpeg" alt="A cup of mango frozen yogurt.">
+                <figcaption>Delicious frozen yogurt served fresh daily.</figcaption>
+                <a href="https://eatthegains.com/ninja-creami-frozen-yogurt/">Image Source</a>
+            </figure>
+            <p>Chilly Rock Frozen Yogurt is a student-run business that serves delicious frozen yogurt in a variety of flavors. Come visit us and enjoy a refreshing treat!</p>
+            <a href="#contact" class="btn-primary">Order Now</a>
+        </section>
+        <section id="flavors">
+            <h2>Our Flavors</h2>
+            <ul class="flavor-grid">
+                <li class="flavor-card">
+                    <h3>Chocolate</h3>
+                    <p>Rich and creamy chocolate frozen yogurt made with real cocoa.</p>
+                </li>
+                <li class="flavor-card">
+                    <h3>Vanilla</h3>
+                    <p>Classic vanilla frozen yogurt made with real vanilla beans.</p>
+                </li>
+                <li class="flavor-card">
+                    <h3>Mango</h3>
+                    <p>Sweet and tangy mango frozen yogurt made with fresh mango puree.</p>
+                </li>
+            </ul>
+        </section>
+        <section id="order">
+            <h2>Place an Order</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="flavor">Flavor:</label>
+                <select id="flavor" name="flavor" required>
+                    <option value="">Select a flavor</option>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="vanilla">Vanilla</option>
+                    <option value="mango">Mango</option>
+                </select>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" required>
+                <button type="submit">Submit Order</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Chilly Rock Frozen Yogurt. All rights reserved.</p>
+        <nav aria-label="Social Links">
+            <a href="#">X</a>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+        </nav>
+    </footer>
+</body>
+</html>
