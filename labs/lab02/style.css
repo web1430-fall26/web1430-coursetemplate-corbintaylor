@@ -12,10 +12,10 @@
 
 /* ─── Design tokens ──────────────────────────────────────────────────────── */
 :root {
-  --color-brand:      /* TODO: your brand color */;
-  --color-text:       /* TODO: dark text color */;
-  --color-bg:         /* TODO: page background */;
-  --color-surface:    /* TODO: card/section background */;
+  --color-brand: #700ac9;
+  --color-text: #010003;       /* TODO: dark text color */
+  --color-bg: #e3e3e3;        /* TODO: page background */
+  --color-surface: #757474;    /* TODO: card/section background */
 
   --space-sm:  0.5rem;
   --space-md:  1rem;
@@ -68,65 +68,123 @@ img {
 
 /* ─── Header & nav ───────────────────────────────────────────────────────── */
 header {
-  /* TODO */
+  display: flex;
+  justify-content: center;
+  padding: var(--space-md);
+  background-color: var(--color-brand);
 }
 
 nav {
   /* TODO */
+  color: white;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+}
+
+ul {
+  list-style: none;
 }
 
 /* ─── Hero ───────────────────────────────────────────────────────────────── */
 .hero {
   /* TODO */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ─── Button ─────────────────────────────────────────────────────────────── */
 .btn-primary {
   /* TODO: style as a button-like link */
+  border: var(--color-text) 2px solid;
+  text-align: center;
+  padding: var(--space-sm);
+  width: 10rem;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  background-color: white;
 }
 
 /* ─── Hike card ──────────────────────────────────────────────────────────── */
 .hike-card {
   /* TODO */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: var(--color-text) 2px solid;
+  text-align: center;
+  padding: var(--space-sm);
+  width: 50%;
+  height: 75%;
 }
 
 /* ─── Member grid — single column on mobile ──────────────────────────────── */
 .member-grid {
   list-style: none;
   /* TODO: single column layout */
+
+  display: grid;
 }
 
 .member-card {
   /* TODO */
+
+  border: var(--color-text) 2px solid;
+  text-align: center;
+  margin: var(--space-md);
 }
 
 /* ─── Contact form ───────────────────────────────────────────────────────── */
 .field-group {
   /* TODO */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 label {
   /* TODO */
+  color: var(--color-text);
 }
 
 input,
 textarea {
   /* TODO */
+  width: 40%;
+  height: 100%;
 }
 
 button[type="submit"] {
   /* TODO */
+  background-color: lime;
+  color: var(--color-text);
+  text-align: center;
 }
 
 /* ─── Footer ─────────────────────────────────────────────────────────────── */
 footer {
   /* TODO */
+  background-color: var(--color-brand);
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* ─── Responsive: tablet (600px+) ───────────────────────────────────────── */
 @media (min-width: 600px) {
   .member-grid {
     /* TODO: two-column grid */
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
   }
 }
 
@@ -134,10 +192,20 @@ footer {
 @media (min-width: 900px) {
   .member-grid {
     /* TODO: three-column grid */
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
   }
 
   nav {
     /* TODO: horizontal nav links */
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  ul {
+    display: flex;
+    gap: var(--space-md);
   }
 
   .contact-form-wrapper {
