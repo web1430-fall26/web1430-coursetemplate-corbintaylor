@@ -9,12 +9,12 @@ const userAge = '28';
 function buildWelcome(name, age) {
   const numericAge = parseInt(age);
   const nextYear = numericAge + 1
-  return `Hi ${name}! You are ${numericAge} years old. Next year you will be ${nextYeer} years old.`;
+  return `Hi ${name}! You are ${numericAge} years old. Next year you will be ${nextYear} years old.`;
 }
 
 const message = buildWelcome(userName, userAge)
-console.log(mesage);
+console.log(message);
 
-if (userAge == 28) {
+if (userAge === 28) {
   console.log('Age matched with strict equality');
 }

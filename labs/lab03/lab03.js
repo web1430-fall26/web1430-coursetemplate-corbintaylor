@@ -7,6 +7,12 @@
 
 function greet(name) {
   // TODO
+
+  if (name.trim() === "") {
+    return "Hello, stranger!";
+  } else {
+    return `Hello, ${name}! Welcome to WEB 1430.`;
+  }
 }
 
 console.log(greet('Jordan'));   // Expected: "Hello, Jordan! Welcome to WEB 1430."
@@ -20,6 +26,8 @@ console.log(greet(''));         // Expected: "Hello, stranger!"
 
 function toFahrenheit(celsius) {
   // TODO
+
+  return `${((celsius * 9/5) + 32).toFixed(1)}°F`;
 }
 
 console.log(toFahrenheit(0));     // Expected: "32.0°F"
@@ -34,6 +42,16 @@ console.log(toFahrenheit(-40));   // Expected: "-40.0°F"
 
 function checkPassword(password) {
   // TODO
+
+  if (password.length >= 12) {
+    return "strong";
+  } else if (password.length >= 8) {
+    return "medium";
+  } else if (password.length < 8 && password.length > 0) {
+    return "weak";
+  } else {
+    return "invalid";
+  }
 }
 
 console.log(checkPassword('abc'));               // Expected: "weak"
@@ -50,6 +68,18 @@ console.log(checkPassword(12345));               // Expected: "invalid"
 
 function getInitials(fullName) {
   // TODO
+
+  const names = fullName.trim().split(' ');
+  let initials = '';
+
+  let i = 0;
+  for (i = 0; i < names.length; ++i) {
+    if (names[i] !== '') {
+      initials += names[i][0].toUpperCase() + '.';
+    }
+  }
+
+  return initials;
 }
 
 console.log(getInitials('Jordan Smith'));          // Expected: "J.S."
