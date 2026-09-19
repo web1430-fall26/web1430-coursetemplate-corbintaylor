@@ -76,4 +76,10 @@ Error 2:
 3. The error message said, `ReferenceError: mesage is not defined`, meaning that `mesage` was not a variable and that the variable `message` was typed incorrectly.
 
 Error 3:
-1. 
+1. Line 18, the `==` operator was used instead of the `===` operator
+2. Fixed: `userAge === 28`
+3. I fixed the comparison because it was simpler to fix and aligns with the message that displays if the expression evaluates to true. 
+
+## Process Reflection
+
+The type coercion for `null === undefined` surprised me the most because I didn't know that they were different before this week's content. The hardest bug to find was the last one with the missing `=`. There was no error message for this bug, but the string message states, "Age matched with strict equality", if the expression evaluates to true. The "strict equality" part clued me in to the use of `==` instead of `===`. 
