@@ -1,0 +1,3 @@
+# Process Reflection
+
+I used a guard clause when rendering the table. Without it, invalid increment values and row counts could be provided, causing the table not to render correctly. The clauses also allowed me to display an error message to alert the user of what went wrong. When I tested with out-of-range or missing inputs, the error messages displayed. To add a fourth trail difficulty, I would have to update the guard clause. 
