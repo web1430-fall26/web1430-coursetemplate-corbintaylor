@@ -30,13 +30,40 @@ const tableOutputDiv  = document.getElementById('table-output');
 //        maxDistance must be 1–20
 //        maxHours must be 1–8
 function validateInputs(level, maxDistance, maxHours) {
-  // TODO
+  recommendationDiv.innerHTML = '';
+
+  if (level !== 'beginner' && level !== 'intermediate' && level !== 'advanced') {
+    const errMsg = document.createElement('p');
+    errMsg.textContent = "Invalid experience level.";
+    recommendationDiv.append(errMsg);
+    return false;
+  }
+  if (maxDistance < 1 || maxDistance > 20) {
+    const errMsg = document.createElement('p');
+    errMsg.textContent = "Invalid distance.";
+    recommendationDiv.append(errMsg);
+    return false;
+  }
+  if (maxHours < 1 || maxHours > 8) {
+    const errMsg = document.createElement('p');
+    errMsg.textContent = "Invalid number of hours.";
+    recommendationDiv.append(errMsg);
+    return false;
+  }
+
+  return true;
 }
 
 // findTrail(level, maxDistance, maxHours)
 // Returns the first trail matching all three criteria, or null if none match.
 function findTrail(level, maxDistance, maxHours) {
-  // TODO
+  for (const trail of trails) {
+    if (trail.level === level && trail.distance <= maxDistance && trail.hours <= maxHours) {
+      return trail;
+    }
+  }
+
+  return null;
 }
 
 // renderRecommendation(trail)
@@ -46,12 +73,31 @@ function findTrail(level, maxDistance, maxHours) {
 // Use createElement + textContent — no innerHTML.
 function renderRecommendation(trail) {
   recommendationDiv.innerHTML = ''; // clear previous result
-  // TODO
+  const result = document.createElement('p');
+  
+  if (trail) {
+    result.textContent = `Trail found: ${trail.name}:
+                          \n- Distance: ${trail.distance} miles
+                          \n- Hours: ${trail.hours}
+                          \n- Difficulty: ${trail.level}`;
+  } else {
+    result.textContent = "No trail matches your criteria. Try adjusting your distance or time."; 
+  }
+
+  recommendationDiv.append(result);
 }
 
 // Button handler
 findBtn.addEventListener('click', () => {
   // TODO: read values → validate → findTrail → renderRecommendation
+
+  const level = document.querySelector('#experience').value;
+  const maxDistance = Number(document.querySelector('#max-distance').value);
+  const maxHours = Number(document.querySelector('#max-hours').value);
+
+  if (validateInputs(level, maxDistance, maxHours)) {
+    renderRecommendation(findTrail(level, maxDistance, maxHours));
+  }
 });
 
 // ─── Part 4: Distance converter functions ────────────────────────────────
@@ -60,6 +106,8 @@ findBtn.addEventListener('click', () => {
 // Returns miles converted to kilometers (miles × 1.60934), rounded to 2 decimal places.
 function milesToKm(miles) {
   // TODO
+
+  return Number((miles * 1.60934).toFixed(2));
 }
 
 // renderTable(increment, rows)
@@ -69,6 +117,50 @@ function milesToKm(miles) {
 function renderTable(increment, rows) {
   tableOutputDiv.innerHTML = ''; // clear previous result
   // TODO
+
+  if (rows < 1 || rows > 20) {
+    const errMsg = document.createElement('p');
+    errMsg.textContent = "Invalid number of rows.";
+    tableOutputDiv.append(errMsg);
+    return;
+  }
+  if (increment < 0.1) {
+    const errMsg = document.createElement('p');
+    errMsg.textContent = "Invalid increment value.";
+    tableOutputDiv.append(errMsg);
+    return;
+  } 
+
+  const table = document.createElement('table');
+  const headerRow = document.createElement('tr');
+  const mileHeader = document.createElement('th');
+  const kmHeader = document.createElement('th');
+
+  mileHeader.textContent = 'Miles';
+  kmHeader.textContent = 'Kilometers';
+  headerRow.append(mileHeader, kmHeader);
+  table.append(headerRow);
+
+  let i = 1;
+
+  for (i; i <= rows; ++i) {
+    const row = document.createElement('tr');
+    const mileData = document.createElement('td');
+    const kmData = document.createElement('td');
+
+    if (Number.isInteger(increment)) {
+      mileData.textContent = i * increment;
+    } else {
+      mileData.textContent = (i * increment).toFixed(2);
+    }
+    
+    kmData.textContent = milesToKm(i * increment);
+
+    row.append(mileData, kmData);
+    table.append(row);
+  }
+
+  tableOutputDiv.append(table);
 }
 
 generateBtn.addEventListener('click', () => {
