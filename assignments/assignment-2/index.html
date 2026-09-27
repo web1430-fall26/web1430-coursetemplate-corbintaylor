@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assignment 2 - Tip and Bill Calculator</title>
+        <script src="tipAndBillCalc.js" defer></script>
+    </head>
+    <body>
+        <h1>Tip and BillCalculator</h1>
+        <form id="tip-form">
+            <label for="meal-total">Meal Total:</label>
+            <input type="number" id="meal-total" name="meal-total" step="0.01" min="0" required>
+            <br><br>
+            <label for="tip-percentage">Tip Percentage:</label>
+            <input type="number" id="tip-percentage" name="tip-percentage" step="0.1" min="0" max="100" required>
+            <br><br>
+            <label for="num-people">Number of People:</label>
+            <input type="number" id="num-people" name="num-people" step="1" min="1" required>
+            <br><br>
+            <button type="button" id="calc-share">Calculate Share</button>
+        </form>
+        <div id="output"></div>
+        <div id="errors" aria-describedby="error-message"></div>
+    </body>
+</html>
