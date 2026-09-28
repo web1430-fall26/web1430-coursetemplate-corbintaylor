@@ -33,25 +33,16 @@ function validateInputs(level, maxDistance, maxHours) {
   recommendationDiv.innerHTML = '';
 
   if (level !== 'beginner' && level !== 'intermediate' && level !== 'advanced') {
-    const errMsg = document.createElement('p');
-    errMsg.textContent = "Invalid experience level.";
-    recommendationDiv.append(errMsg);
-    return false;
+    return "Invalid experience level.";
   }
   if (maxDistance < 1 || maxDistance > 20) {
-    const errMsg = document.createElement('p');
-    errMsg.textContent = "Invalid distance.";
-    recommendationDiv.append(errMsg);
-    return false;
+    return "Invalid distance.";
   }
   if (maxHours < 1 || maxHours > 8) {
-    const errMsg = document.createElement('p');
-    errMsg.textContent = "Invalid number of hours.";
-    recommendationDiv.append(errMsg);
-    return false;
+    return "Invalid hours.";
   }
 
-  return true;
+  return null;
 }
 
 // findTrail(level, maxDistance, maxHours)
@@ -87,6 +78,12 @@ function renderRecommendation(trail) {
   recommendationDiv.append(result);
 }
 
+function renderError(error) {
+  const errMsg = document.createElement('p');
+  errMsg.textContent = error;
+  recommendationDiv.append(errMsg);
+}
+
 // Button handler
 findBtn.addEventListener('click', () => {
   // TODO: read values → validate → findTrail → renderRecommendation
@@ -94,9 +91,12 @@ findBtn.addEventListener('click', () => {
   const level = document.querySelector('#experience').value;
   const maxDistance = Number(document.querySelector('#max-distance').value);
   const maxHours = Number(document.querySelector('#max-hours').value);
+  const validation = validateInputs(level, maxDistance, maxHours);
 
-  if (validateInputs(level, maxDistance, maxHours)) {
+  if (!validation) {
     renderRecommendation(findTrail(level, maxDistance, maxHours));
+  } else {
+    renderError(validation);
   }
 });
 
