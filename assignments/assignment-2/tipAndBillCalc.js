@@ -3,7 +3,7 @@ const tipPercentage = document.getElementById('tip-percentage');
 const numPeople = document.getElementById('num-people');
 const calcBtn = document.getElementById('calc-share');
 const outputDiv = document.getElementById('output');
-const errorsDiv = document.getElementById('errors');
+const errorSpan = document.getElementById('error');
 
 function calcShare(total, tipPerc, people) {
     return calcTotal(total, tipPerc) / people;
@@ -14,49 +14,64 @@ function calcTotal(total, tipPerc) {
 }
 
 function validInputs(total, tipPerc, people) {
-    if (!total) {
-        renderInputError('Meal total cannot be blank and must be a valid number.');
-        return false;
+    if (Number.isNaN(total)) {
+        mealTotal.setAttribute('aria-invalid', 'true');
+        return 'Meal total cannot be blank and must be a valid number.';
+    } else {
+        mealTotal.removeAttribute('aria-invalid');
     }
-    if (!tipPerc) {
-        renderInputError('Tip percentage cannot be blank and must be a valid number.');
-        return false;
+    if (Number.isNaN(tipPerc)) {
+        tipPercentage.setAttribute('aria-invalid', 'true');
+        return 'Tip percentage cannot be blank and must be a valid number.';
+    } else {
+        tipPercentage.removeAttribute('aria-invalid');
     }
-    if (!people) {
-        renderInputError('Number of people cannot be blank and must be a valid number.');
-        return false;
+    if (Number.isNaN(people)) {
+        numPeople.setAttribute('aria-invalid', 'true');
+        return 'Number of people cannot be blank and must be a valid number.';
+    } else {
+        numPeople.removeAttribute('aria-invalid');
+    }
+    if (!Number.isInteger(people)) {
+        numPeople.setAttribute('aria-invalid', 'true');
+        return 'Number of people must be a whole number.';
+    } else {
+        numPeople.removeAttribute('aria-invalid');
     }
     if (total <= 0) {
-        renderInputError('Meal total must be positive.');
-        return false;
+        mealTotal.setAttribute('aria-invalid', 'true');
+        return 'Meal total must be positive.';
+    } else {
+        mealTotal.removeAttribute('aria-invalid');
     }
     if (tipPerc < 0 || tipPerc > 100) {
-        renderInputError('Tip percentage must be between 0 and 100.');
-        return false;
+        tipPercentage.setAttribute('aria-invalid', 'true');
+        return 'Tip percentage must be between 0 and 100.';
+    } else {
+        tipPercentage.removeAttribute('aria-invalid');
     }
     if (people < 1) {
-        renderInputError('Number of people must be at least 1.');
-        return false;
+        numPeople.setAttribute('aria-invalid', 'true');
+        return 'Number of people must be at least 1.';
+    } else {
+        numPeople.removeAttribute('aria-invalid');
     }
 
-    return true;
+    return null;
 }
 
 function renderInputError(message) {
-    errorsDiv.innerHTML = '';
     outputDiv.innerHTML = '';
+    errorSpan.innerHTML = '';
 
     const errMsg = document.createElement('p');
     errMsg.textContent = message;
-    errorsDiv.setAttribute('aria-invalid', 'true');
-    errorsDiv.append(errMsg);
+    errorSpan.append(errMsg);
 }
 
 function renderOutput(total, share) {
     outputDiv.innerHTML = '';
-    errorsDiv.innerHTML = '';
-
-    errorsDiv.removeAttribute('aria-invalid');
+    errorSpan.innerHTML = '';
 
     const totalMsg = document.createElement('p');
     const shareMsg = document.createElement('p'); 
@@ -68,12 +83,17 @@ function renderOutput(total, share) {
     outputDiv.append(shareMsg);
 }
 
-calcBtn.addEventListener('click', () => {
+function displayResults() {
     const total = parseFloat(mealTotal.value);
     const tipPerc = parseFloat(tipPercentage.value);
     const people = Number(numPeople.value);
+    const error = validInputs(total, tipPerc, people);
 
-    if (validInputs(total, tipPerc, people)) {
+    if (!error) {
         renderOutput(calcTotal(total, tipPerc), calcShare(total, tipPerc, people));
+    } else {
+        renderInputError(error);
     }
-});
+}
+
+calcBtn.addEventListener('click', displayResults);
