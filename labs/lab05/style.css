@@ -1,6 +1,6 @@
-.product-grid {
+#product-grid {
     justify-content: center;
-    display: flex;
+    display: grid;
     align-items: center;
 }
 
@@ -20,8 +20,9 @@ button.out-of-stock {
     background-color: #666666;
 }
 
-@media (max-width: 600px) {
-    .product-grid {
+@media (min-width: 600px) {
+    /* The product grid is accessed with # because it is an id */
+    #product-grid {
         display: grid;
         grid-template-columns: 33% 33% 33%;
         justify-content: center;

@@ -1,0 +1,3 @@
+# Process Reflection
+
+The `getCategories` function returned a list of all of the products' categories, including duplicates. Using `Set` reduced the size of the categories list by only including unique values. When I tried to sort the arrays without `.slice()`, it seemed to work fine, but it was sorting the original array instead of a copy. I was able to keep the active category filter by using another `.querySelector()` in the 'change' event listener for sorting to then be able to access the value within the `<select>` element. I then had to use `filterByCategory()` again before sorting to maintain the category choice. 
