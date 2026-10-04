@@ -1,0 +1,29 @@
+.product-grid {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.product-card {
+    border: 1px solid #000;
+}
+
+.product-card.no-stock {
+    opacity: 0.5;
+}
+
+button {
+    background-color: #28fc61;
+}
+
+button.out-of-stock {
+    background-color: #666666;
+}
+
+@media (max-width: 600px) {
+    .product-grid {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        justify-content: center;
+    }
+}

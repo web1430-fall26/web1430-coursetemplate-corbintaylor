@@ -1,5 +1,8 @@
-import {products} from './data.js';     // Imports the products
+import {products} from "./data.js";     // Imports the products
+
 const productGrid = document.getElementById('product-grid');  // Gets the product grid element
+const filterBarDiv = document.getElementById('filter-bar');  // Gets the filter bar div
+const sortSelect = document.getElementById('sort-order');  // Gets the 'Sort by Price' element
 
 function filterByCategory(productList, category) {
     // Returns all products if the category is 'All'
@@ -30,10 +33,10 @@ function sortByPrice(productList, direction) {
         // .sort() checks whether a is greater than b by using subtraction (neg -> a is less than b)
         // a - b results in ascending order
         // .slice() returns a copy of the array
-        return productList.sort((a, b) => a.price - b.price).slice(); 
+        return productList.slice().sort((a, b) => a.price - b.price); 
     } else if (direction === 'desc') {
         // b - a results in descending order
-        return productList.sort((a, b) => b.price - a.price).slice();
+        return productList.slice().sort((a, b) => b.price - a.price);
     }
 
     // Defaults to return the list with no sorting
@@ -70,6 +73,7 @@ function renderProductCard(product) {
         stockStatus.textContent = 'In Stock';
     } else {
         stockStatus.classList.add('out-of-stock');
+        productCard.classList.add('no-stock');
         stockStatus.textContent = 'Out of Stock';
     }
     // Creates the add to cart button
@@ -79,10 +83,13 @@ function renderProductCard(product) {
     // Disables the button if the product is out of stock
     if (!product.inStock) {
         addToCartBtn.disabled = true;
+        addToCartBtn.classList.add('out-of-stock');
     }
 
-    // Appends the elements to the card and returns it
-    return productCard.append(productName, productCategory, productPrice, stockStatus, addToCartBtn);
+    // Appends the elements to the product card
+    productCard.append(productName, productCategory, productPrice, stockStatus, addToCartBtn);
+
+    return productCard;
 }
 
 function renderProductList(productList, container) {
@@ -103,7 +110,7 @@ function renderProductList(productList, container) {
 
 function renderCategoryFilter(categories, container) {
     const categoryFilter = document.createElement('select');
-
+    categoryFilter.classList.add('filter-select');
     // Loops through the categories and creates an option for each
     categories.forEach(category => {
         const option = document.createElement('option');
@@ -115,3 +122,23 @@ function renderCategoryFilter(categories, container) {
     // Appends the category filter to the container
     container.append(categoryFilter);
 }
+
+// Once the DOM loads, the category filter and the product list are rendered
+document.addEventListener('DOMContentLoaded', () => {
+    renderCategoryFilter(getCategories(products), filterBarDiv);
+    renderProductList(products, productGrid);
+});
+
+// When the filter bar changes, the product list is re-rendered based on the selected category
+filterBarDiv.addEventListener('change', () => {
+    // The .querySelector had to be used because the element is created dynamically and is assigned a class
+    const filterValue = filterBarDiv.querySelector('.filter-select').value;
+    renderProductList(filterByCategory(products, filterValue), productGrid);
+});
+
+// Updates the product list based on the selected sort order while preserving the category filter
+sortSelect.addEventListener('change', () => {
+    const sortOrder = sortSelect.value;
+    const filterValue = filterBarDiv.querySelector('.filter-select').value;
+    renderProductList(sortByPrice(filterByCategory(products, filterValue), sortOrder), productGrid);
+});

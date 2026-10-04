@@ -5,15 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lab 05 – Campus Store</title>
   <link rel="stylesheet" href="style.css">
-  <script src="lab05.js" defer></script>
+  <script type="module" src="lab05.js" defer></script>
+  <script type="module" src="data.js" defer></script>
 </head>
 <body>
   <main>
     <h1>Campus Store</h1>
 
     <div class="controls">
+      <!-- Used to display the available product categories -->
       <div id="filter-bar" aria-label="Filter by category"></div>
       <div class="field-group">
+        <!-- Supplies the sort order for the products -->
         <label for="sort-order">Sort by price</label>
         <select id="sort-order">
           <option value="asc">Price: Low to High</option>
