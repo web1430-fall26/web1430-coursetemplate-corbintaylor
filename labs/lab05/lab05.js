@@ -94,7 +94,7 @@ function renderProductCard(product) {
 
 function renderProductList(productList, container) {
     // Clears the container before rendering
-    container.innerHTML = ''; 
+    container.textContent = ''; 
 
     // Makes sure there are products in the list
     if (productList.length > 0) {
@@ -130,15 +130,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // When the filter bar changes, the product list is re-rendered based on the selected category
-filterBarDiv.addEventListener('change', () => {
-    // The .querySelector had to be used because the element is created dynamically and is assigned a class
-    const filterValue = filterBarDiv.querySelector('.filter-select').value;
-    renderProductList(filterByCategory(products, filterValue), productGrid);
-});
+filterBarDiv.addEventListener('change', updateProductList);
 
 // Updates the product list based on the selected sort order while preserving the category filter
-sortSelect.addEventListener('change', () => {
+sortSelect.addEventListener('change', updateProductList);
+
+// Combines the updates into one function that can be attached to the separate event listeners
+function updateProductList() {
     const sortOrder = sortSelect.value;
+    // The .querySelector had to be used because the element is created dynamically and is assigned a class
     const filterValue = filterBarDiv.querySelector('.filter-select').value;
     renderProductList(sortByPrice(filterByCategory(products, filterValue), sortOrder), productGrid);
-});
+}
