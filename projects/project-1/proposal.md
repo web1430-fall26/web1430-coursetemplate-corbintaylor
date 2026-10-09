@@ -7,13 +7,13 @@ The fictional company that I will be building a website for is called EB Cycling
 ## Color Palette
 
 White and blue:
-- #EDEEFC
-- #0741B5
+- #EDEEFC: white
+- #0741B5: dark blue
 - Contrast Ratio: 7.49:1
 
 Gray and a really light blue:
-- #363636
-- #DEE9FF
+- #363636: dark gray
+- #DEE9FF: light blue
 - Contrast Ratio: 9.9:1
 
 ## Typography Plan
@@ -43,7 +43,7 @@ Font Size:
 3. Tips for riding safely
     - An informational section to educate riders about safety
 4. E-bike catalog
-    - Section to organize the e-bikes for sale and allows the user to search based on criteria such as maximum distance, battery life, or safety features
+    - Section to organize the e-bikes for sale and allows the user to search based on criteria such as maximum distance, battery life, and maximum price
 5. Shopping cart/place an order
     - Allows the user to see what is in their shopping cart and submit their order
 
@@ -53,4 +53,4 @@ See the attached document.
 
 ## Accessibility Plan
 
-A keyboard user will be able to tab between all elements on the screen. I will include a highlight around the currently selected element. aria-live="polite" will be used for the shopping cart. I will ensure that the total with the shopping cart is formatted well so that it is easily understood. I will include alternative text for the images as well in the event that they do not load. The page will be designed primarily for mobile users, but it will also be usable on desktop. 
+A keyboard user will be able to tab between all elements on the screen. I will include a highlight around the currently selected element. For each filter in the product section, aria-describedby will be used to link to an error div that appears in the event of invalid input. aria-live="polite" will be used for the shopping cart. I will also use aria-expanded and set it to true for when the shopping cart is expanded and false for when it is not. aria-controls will be used for the div that holds the items in the shopping cart and connected to the expand/collapse button. I will ensure that the total with the shopping cart is formatted well so that it is easily understood. For the remove item buttons, I will use aria-label because it will be represented with just an x. I will include alternative text for the images as well in the event that they do not load. The page will be designed primarily for mobile users, but it will also be usable on desktop.    
