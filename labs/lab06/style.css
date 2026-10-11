@@ -1,0 +1,49 @@
+/* Defined colors in the root */
+
+:root {
+  --background-color: #f0f0f0;
+  --background-color-selected: #e0e0e0;
+}
+
+/* FAQ stuff */
+
+.faq-answer[hidden] {
+  display: none;
+}
+
+.faq-question {
+  border: none;
+  background-color: var(--background-color);
+  text-align: left;
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.faq-question[aria-expanded="true"] {
+  background-color: var(--background-color-selected);
+}
+
+/* Tab stuff */
+
+[role="tabpanel"][hidden] {
+  display: none;
+}
+
+.tab-list {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  gap: 5px;
+}
+
+[role="tab"] {
+  width: 100%;
+  text-align: center;
+  border: none;
+  background-color: var(--background-color);
+}
+
+[role="tab"][aria-selected="true"] {
+  background-color: var(--background-color-selected);
+}
