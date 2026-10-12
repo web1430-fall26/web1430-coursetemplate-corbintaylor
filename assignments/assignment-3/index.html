@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 3 - DOM Pattern Library</title>
+  <script src="patterns.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>DOM Pattern Library</h1>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#accordion">Accordion</a></li>
+          <li><a href="#tabbed-interace">Tabbed Interface</a></li>
+          <li><a href="#live-filter">Live Filter</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section id="accordion">
+      <h2>Accordion</h2>
+      <p>Each item can be opened individually, but opening other items 
+      closes all other items. Accessible via tab.</p>
+
+      <h3>
+        <button class="accordion-question" aria-expanded="false" aria-controls="accordion-answer-1">
+          Question 1
+        </button>
+        <div id="accordion-answer-1" hidden>
+          <p>Answer 1</p>
+        </div>
+      </h3>
+
+      <h3>
+        <button class="accordion-question" aria-expanded="false" aria-controls="accordion-answer-2">
+          Question 2
+        </button>
+        <div id="accordion-answer-2" hidden>
+          <p>Answer 2</p>
+        </div>
+      </h3>
+
+      <h3>
+        <button class="accordion-question" aria-expanded="false" aria-controls="accordion-answer-3">
+          Question 3
+        </button>
+        <div id="accordion-answer-3" hidden>
+          <p>Answer 3</p>
+        </div>
+      </h3>
+
+      <h3>
+        <button class="accordion-question" aria-expanded="false" aria-controls="accordion-answer-4">
+          Question 4
+        </button>
+        <div id="accordion-answer-4" hidden>
+          <p>Answer 4</p>
+        </div>
+      </h3>
+    </section>
+    <section id="tabbed-interface">
+      <h2>Tabbed Interface</h2>
+      <p>Roving tabindex. Users can tab in and tab out immediately. 
+      To move between the items, use the left and right arrow keys,
+      "Home", or "End".</p>
+      
+      <div class="tab-list" role="tablist" aria-label="Roving tabindex example">
+        <button role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1">Tab 1</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2">Tab 2</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3">Tab 3</button>
+      </div>
+
+      <div role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+        <p>Tab Panel 1</p>
+      </div>
+
+      <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+        <p>Tab Panel 2</p>
+      </div>
+
+      <div role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
+        <p>Tab Panel 3</p>
+      </div>
+    </section>
+    <section id="live-filter">
+      <h2>Live Filter</h2>
+      <p>Filters eight items live based on what is typed in the search 
+      bar.</p>
+      <label for="card-search">Search Cards:</label>
+      <input type="text" id="text-input">
+      <div id="results" aria-live="polite"></div>
+      <div id="counter" aria-live="polite"></div>
+      <div id="errors" aria-live="polite">
+        <p id="error" hidden>No cards found.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
