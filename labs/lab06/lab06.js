@@ -33,9 +33,9 @@ function selectTab(tabs, panels, newIndex) {
 
         // Selected tabs get a tabIndex of 0; unselected tabs get -1
         if (selected) {
-            tabs.tabIndex = 0;
+            tab.tabIndex = 0;
         } else {
-            tabs.tabIndex = -1;
+            tab.tabIndex = -1;
         }
 
         // If the tab is selected, the corresponding panel is shown and vice versa
