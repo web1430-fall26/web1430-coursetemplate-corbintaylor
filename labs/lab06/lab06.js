@@ -7,9 +7,9 @@ const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
 // Function for setting up the FAQ section
 function initFaq(faqContainer) {
     faqContainer.addEventListener('click', (event) => {
-        // Event.target returns the clicked element. Sets it to aria-expanded and takes of the hidden attribute
+        // Event.target returns the clicked element. Sets it to aria-expanded and takes off the hidden attribute
         if (event.target.matches('.faq-question')) {
-            event.target.setAttribute('aria-expanded', 'true');
+            event.target.setAttribute('aria-expanded', String(event.target.nextElementSibling.hidden));
             event.target.nextElementSibling.toggleAttribute('hidden');
 
             // Runs through the questions array, hides all other questions, and sets aria-expanded to false
@@ -47,10 +47,13 @@ function selectTab(tabs, panels, newIndex) {
 }
 
 function initTabs(tabListContainer) {
+    // Initializes the tabs
+    selectTab(tabs, panels, 0);
+
     // Uses selectTab for the click behavior
     tabListContainer.addEventListener('click', (event) => {
         if (event.target.getAttribute('role') === 'tab') {
-            selectTab(tabs, panels, tabs.indexOf(document.activeElement));
+            selectTab(tabs, panels, tabs.indexOf(event.target));
         }
     });
 
