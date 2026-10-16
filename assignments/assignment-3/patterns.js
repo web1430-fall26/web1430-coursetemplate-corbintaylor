@@ -22,7 +22,7 @@ function initAccordion(accordionContainer) {
     accordionContainer.addEventListener('click', (event) => {
         if (event.target.matches('.accordion-question')) {
             // Sets the selected question's aria-expanded to true and makes the answer visible
-            event.target.setAttribute('aria-expanded', 'true');
+            event.target.setAttribute('aria-expanded', String(event.target.nextElementSibling.hidden));
             event.target.nextElementSibling.toggleAttribute('hidden');
 
             // Loops through the questions and hides unselected questions
@@ -114,7 +114,7 @@ function renderCard(card) {
     return fruitCard;
 }
 
-function renderCardList(elementArray, input, container) {
+function renderCardList(elementArray, input) {
     let count = 0;
 
     if (elementArray.length > 0) {

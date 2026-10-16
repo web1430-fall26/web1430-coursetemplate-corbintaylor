@@ -1,0 +1,19 @@
+/* Nav bar focus */
+a:focus-visible {
+    outline: 2px solid blue;
+}
+
+/* All button focuses */
+button:focus-visible {
+    outline: 2px solid blue;
+}
+
+/* Search bar focus */
+#text-input:focus-visible {
+    outline: 2px solid blue;
+}
+
+/* Active tab */
+[role="tab"][aria-selected="true"] {
+    background-color: #b5b5b5;
+}

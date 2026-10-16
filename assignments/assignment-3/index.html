@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assignment 3 - DOM Pattern Library</title>
+  <link rel="stylesheet" href="styles.css">
   <script src="patterns.js" defer></script>
 </head>
 <body>
@@ -13,7 +14,7 @@
       <nav>
         <ul>
           <li><a href="#accordion">Accordion</a></li>
-          <li><a href="#tabbed-interace">Tabbed Interface</a></li>
+          <li><a href="#tabbed-interface">Tabbed Interface</a></li>
           <li><a href="#live-filter">Live Filter</a></li>
         </ul>
       </nav>
@@ -23,41 +24,41 @@
       <p>Each item can be opened individually, but opening other items 
       closes all other items. Accessible via tab.</p>
 
-      <h3>
+      <div class="accordion-set">
         <button class="accordion-question" aria-expanded="false" aria-controls="accordion-answer-1">
           Question 1
         </button>
         <div id="accordion-answer-1" hidden>
           <p>Answer 1</p>
         </div>
-      </h3>
+      </div>
 
-      <h3>
+      <div class="accordion-set">
         <button class="accordion-question" aria-expanded="false" aria-controls="accordion-answer-2">
           Question 2
         </button>
         <div id="accordion-answer-2" hidden>
           <p>Answer 2</p>
         </div>
-      </h3>
+      </div>
 
-      <h3>
+      <div class="accordion-set">
         <button class="accordion-question" aria-expanded="false" aria-controls="accordion-answer-3">
           Question 3
         </button>
         <div id="accordion-answer-3" hidden>
           <p>Answer 3</p>
         </div>
-      </h3>
+      </div>
 
-      <h3>
+      <div class="accordion-set">
         <button class="accordion-question" aria-expanded="false" aria-controls="accordion-answer-4">
           Question 4
         </button>
         <div id="accordion-answer-4" hidden>
           <p>Answer 4</p>
         </div>
-      </h3>
+      </div>
     </section>
     <section id="tabbed-interface">
       <h2>Tabbed Interface</h2>
@@ -87,7 +88,7 @@
       <h2>Live Filter</h2>
       <p>Filters eight items live based on what is typed in the search 
       bar.</p>
-      <label for="card-search">Search Cards:</label>
+      <label for="text-input">Search Cards:</label>
       <input type="text" id="text-input">
       <div id="results" aria-live="polite"></div>
       <div id="counter" aria-live="polite"></div>
