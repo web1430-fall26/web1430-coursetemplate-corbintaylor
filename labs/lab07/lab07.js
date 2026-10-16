@@ -14,14 +14,14 @@ const confirmDetails = document.getElementById('confirmation-details');
 // Each returns an error string if invalid, or null if valid.
 
 function validateName(value) {
-  if (!value.trim()) return 'Full name is required.';
-  if (value.trim().length < 2) return 'Name must be at least 2 characters.';
+  if (!value.trim()) return '*Full name is required.';
+  if (value.trim().length < 2) return '*Name must be at least 2 characters.';
   return null;
 }
 
 function validateEmail(value) {
-  if (!value.trim()) return 'Email address is required.';
-  if (!value.includes('@') || !value.includes('.')) return 'Please enter a valid email address.';
+  if (!value.trim()) return '*Email address is required.';
+  if (!value.includes('@') || !value.includes('.')) return '*Please enter a valid email address.';
   return null;
 }
 
@@ -29,18 +29,18 @@ function validatePhone(value) {
   // Optional — only validate format if a value was entered
   if (!value.trim()) return null;
   const digitsOnly = value.replace(/\D/g, '');
-  if (digitsOnly.length < 10) return 'Phone number must have at least 10 digits.';
+  if (digitsOnly.length < 10) return '*Phone number must have at least 10 digits.';
   return null;
 }
 
 function validateStudentId(value) {
-  if (!value.trim()) return 'Student ID is required.';
-  if (!/^\d{7,9}$/.test(value.trim())) return 'Student ID must be 7–9 digits.';
+  if (!value.trim()) return '*Student ID is required.';
+  if (!/^\d{7,9}$/.test(value.trim())) return '*Student ID must be 7–9 digits.';
   return null;
 }
 
 function validateEvent(value) {
-  if (!value) return 'Please select a workshop.';
+  if (!value) return '*Please select a workshop.';
   return null;
 }
 
@@ -100,7 +100,7 @@ form.addEventListener('submit', (event) => {
   // Prevents the default validation from occurring
   event.preventDefault();
 
-  // Initializes an array of objects that contain an element and its corresponding validation function
+  // Initializes an array of objects that contain an element and its corresponding function
   const fields = [
     { el: nameInput, validate: validateName },
     { el: emailInput, validate: validateEmail },
@@ -109,7 +109,39 @@ form.addEventListener('submit', (event) => {
     { el: eventSelect, validate: validateEvent }
   ];
 
+  // Used to track the first error that occurs
   let firstError = null;
 
-  
+  // Loops through each object in the fields array and uses each element and function
+  fields.forEach(({el, validate}) => {
+    // Sets the error message based on the field and function
+    const error = validate(el.value);
+
+    // If the error message exists, show the error
+    if (error) {
+      showError(el, error);
+
+      // If the firstError has not been set, this sets it
+      if (!firstError) {
+        firstError = el;
+      }
+    } else {
+      // Clears the error otherwise
+      clearError(el);
+    }
+  });
+
+  // Sets the focus to the first error and ends the function if the first error occurred
+  if (firstError) {
+    firstError.focus();
+    return;
+  }
+
+  // Creates a confirmation message. .options, .selectedIndex, and .text provide the workshop
+  confirmDetails.textContent =`${nameInput.value.trim()} has been registered for 
+                               ${eventSelect.options[eventSelect.selectedIndex].text}.`;
+  // Hides the form, shows the confirmation, and sets the focus on the confirmation
+  form.hidden = true;
+  confirmation.hidden = false;
+  confirmation.focus();
 });

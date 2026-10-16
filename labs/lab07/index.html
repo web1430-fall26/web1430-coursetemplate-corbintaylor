@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lab 07 – Workshop Registration</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="lab07.js" defer></script>
 </head>
 <body>
   <main>
@@ -60,7 +61,9 @@
         <span id="dietary-error" class="error-msg" aria-live="polite"></span>
       </div>
 
-      <button type="submit">Register</button>
+      <div class="submit-div">
+        <button type="submit">Register</button>
+      </div>
     </form>
 
     <div id="confirmation" hidden tabindex="-1">
@@ -69,7 +72,5 @@
       <a href="index.html">Register another person</a>
     </div>
   </main>
-
-  <script src="lab07.js" defer></script>
 </body>
 </html>
