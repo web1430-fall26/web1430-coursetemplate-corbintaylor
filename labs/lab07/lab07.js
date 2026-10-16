@@ -64,6 +64,30 @@ function clearError(inputEl) {
 // TODO: Add blur listeners for nameInput and emailInput.
 // Show the error if invalid, clear it if valid.
 
+nameInput.addEventListener('blur', () => {
+  // Creates an error message if there are errors; returns null otherwise
+  const error = validateName(nameInput.value);
+
+  // Shows the error to a corresponding error span if the error message exists or clears it
+  if (error) {
+    showError(nameInput, error)
+  } else {
+    clearError(nameInput);
+  }
+});
+
+emailInput.addEventListener('blur', () => {
+  // Creates the error message for the email input
+  const error = validateEmail(emailInput.value);
+
+  // Shows/removes the error and sets aria attributes
+  if (error) {
+    showError(emailInput, error);
+  } else {
+    clearError(emailInput);
+  }
+});
+
 // ─── Part 4b: Submit handler ──────────────────────────────────────────────
 // TODO: Add a submit listener to `form`.
 // 1. event.preventDefault()
@@ -71,3 +95,21 @@ function clearError(inputEl) {
 // 3. Show errors on invalid fields; clear errors on valid fields
 // 4. If any errors: focus the first invalid field and return
 // 5. If all valid: hide the form, show confirmation with a summary, move focus to confirmation
+
+form.addEventListener('submit', (event) => {
+  // Prevents the default validation from occurring
+  event.preventDefault();
+
+  // Initializes an array of objects that contain an element and its corresponding validation function
+  const fields = [
+    { el: nameInput, validate: validateName },
+    { el: emailInput, validate: validateEmail },
+    { el: phoneInput, validate: validatePhone },
+    { el: studentIdInput, validate: validateStudentId },
+    { el: eventSelect, validate: validateEvent }
+  ];
+
+  let firstError = null;
+
+  
+});
