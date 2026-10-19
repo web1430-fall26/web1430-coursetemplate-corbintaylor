@@ -1,0 +1,28 @@
+:root {
+    /* Colors */
+    --white: #EDEEFC;
+    --dark-blue: #0741B5;
+    --dark-gray: #363636;
+    --light-blue: #DEE9FF;
+
+    /* Font Families */
+    --main-font: Helvetica;
+    --backup-font: Arial;
+
+    /* Font Sizes */
+    --font-sm: 0.75rem;
+    --font-md: 1rem;
+    --font-lg: 1.75rem;
+    --font-xl:2.5rem;
+
+    /* Spacing */
+    --space-sm: 0.75rem;
+    --space-md: 1.5rem;
+    --space-lg: 3rem;
+    --space-xl: 4rem;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--dark-gray);
+}

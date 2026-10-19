@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 1 - EB Cycling</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="project1.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav id="nav-bar">
+      <ul>
+        <li><a href="#welcome">Welcome</a></li>
+        <li><a href="#tips">Tips</a></li>
+        <li><a href="#catalog">Catalog</a></li>
+        <li><a href="#shopping-cart">Shopping Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="welcome">
+      <h1>EB Cycling</h1>
+      <figure>
+        <img src="images/welcome-image.jpg" alt="Electric bike on a grassy hill.">
+        <figcaption>Photo by Abdulmomen Bsruki: <a href="https://www.pexels.com/photo/an-e-bike-in-an-open-field-13989110/">Pexels</a></figcaption>
+      </figure>
+      <article>
+        <h2>Why Ride E-Bikes</h2>
+        <p>Ready to reduce your Carbon footprint? Ready to save money on gas, maintenance, and parking?
+        Or do you just want to go for a smooth, effortless ride? Then an electric bike is for you!</p>
+      </article>
+    </section>
+
+    <section id="tips">
+      <h2>Tips for Riding</h2>
+      <figure>
+        <img src="images/tips-image.jpg" alt="Man riding an electric bike with safety gear.">
+        <figcaption>Photo by Robert So: <a href="https://www.pexels.com/photo/cyclist-riding-electric-bike-along-scenic-waterfront-37134604/">Pexels</a></figcaption>
+      </figure>
+      <p>Here are some helpful tips:</p>
+      <ol>
+        <li>Wear a helmet.</li>
+        <li>Don't look down; look where you are going.</li>
+        <li>Be aware. Look for people and cars around you.</li>
+        <li>Make sure your kick-stand is up before riding.</li>
+        <li>Wear reflective gear.</li>
+      </ol>
+    </section>
+
+    <section id="catalog">
+      <h2>Product Catalog</h2>
+      <form id="catalog-options">
+        <label for="bike-name">Search Name:</label>
+        <input id="bike-name" name="bike-name" type="text" aria-describedby="catalog-errors">
+        <label for="max-price">Maximum Price:</label>
+        <input id="max-price" name="max-price" type="number" aria-describedby="catalog-errors">
+        <label for="min-distance">Minimum Distance:</label>
+        <input id="min-distance" name="min-distance" type="number" aria-describedby="catalog-errors">
+        <label for="min-battery">Minimum Battery Life:</label>
+        <input id="min-battery" name="min-battery" type="number" aria-describedby="catalog-errors">
+      </form>
+      <button id="search-btn" aria-controls="bike-card-container">Search</button>
+      <div id="catalog-errors" aria-live="polite"></div>
+      <div id="bike-card-container" aria-live="polite">
+        <p id="no-bikes-found" hidden>No bikes found.</p>
+      </div>
+    </section>
+
+    <section id="shopping-cart">
+      <div id="shopping-header">
+        <h2>Shopping Cart</h2>
+        <button id="control-cart" aria-controls="cart-items">Collapse Cart</button>
+      </div>
+      <div id="cart-items" aria-expanded="false"></div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 EB Cycling. All rights reserved.</p>
+      <nav aria-label="Social Links">
+        <a href="#">X</a>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+      </nav>
+  </footer>
+</body>
+</html>
