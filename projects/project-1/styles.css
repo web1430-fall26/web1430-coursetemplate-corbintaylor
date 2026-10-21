@@ -1,28 +1,119 @@
 :root {
     /* Colors */
-    --white: #EDEEFC;
-    --dark-blue: #0741B5;
-    --dark-gray: #363636;
-    --light-blue: #DEE9FF;
-
-    /* Font Families */
-    --main-font: Helvetica;
-    --backup-font: Arial;
-
-    /* Font Sizes */
-    --font-sm: 0.75rem;
-    --font-md: 1rem;
-    --font-lg: 1.75rem;
-    --font-xl:2.5rem;
+    --color-bg: #EDEEFC;
+    --color-brand: #0741B5;
+    --color-text: #363636;
+    --color-accent: #DEE9FF;
 
     /* Spacing */
     --space-sm: 0.75rem;
     --space-md: 1.5rem;
     --space-lg: 3rem;
     --space-xl: 4rem;
+
+    /* Font sizes */
+    --font-sm: 1rem;
+    --font-body: 1.25rem;
+    --font-lg: 1.5rem;
+    --font-heading: 1.75rem;
+
+    /* Font families */
+    --main-font: Helvetica;
+    --backup-font: Arial;
 }
 
+/* Body styles */
+
 body {
-    background-color: var(--white);
-    color: var(--dark-gray);
+    color: var(--color-text);
+    font-family: var(--main-font);
+}
+
+/* Color swatch styles */
+
+#swatch-bg {
+    background-color: var(--color-bg);
+}
+
+#swatch-brand {
+    background-color: var(--color-brand);
+    color: var(--color-accent);
+}
+
+#swatch-text {
+    background-color: var(--color-text);
+    color: var(--color-accent);
+}
+
+#swatch-accent {
+    background-color: var(--color-accent);
+}
+
+/* Space rectangle styles */
+
+#space-sm-rectangle {
+    height: var(--space-sm);
+    width: var(--space-sm);
+    background-color: var(--color-brand);
+}
+
+#space-md-rectangle {
+    height: var(--space-sm);
+    width: var(--space-md);
+    background-color: var(--color-brand);
+}
+
+#space-lg-rectangle {
+    height: var(--space-sm);
+    width: var(--space-lg);
+    background-color: var(--color-brand);
+}
+
+#space-xl-rectangle {
+    height: var(--space-sm);
+    width: var(--space-xl);
+    background-color: var(--color-brand);
+}
+
+/* Font sizes */
+
+#font-sm {
+    font-size: var(--font-sm);
+}
+
+#font-body {
+    font-size: var(--font-body);
+}
+
+#font-lg {
+    font-size: var(--font-lg);
+}
+
+#font-heading {
+    font-size: var(--font-heading);
+}
+
+/* Heading styles */
+
+h1 {
+    font-size: var(--font-heading);
+}
+
+h2 {
+    font-size: var(--font-lg);
+}
+
+h3 {
+    font-size: var(--font-body);
+}
+
+h4 {
+    font-size: var(--font-sm);
+}
+
+/* Body text paragraph */
+
+p {
+    line-height: var(--space-md);
+    max-width: 60ch;
 }

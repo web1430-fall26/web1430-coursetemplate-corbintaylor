@@ -11,44 +11,95 @@
   <header>
     <nav id="nav-bar">
       <ul>
-        <li><a href="#welcome">Welcome</a></li>
-        <li><a href="#tips">Tips</a></li>
-        <li><a href="#catalog">Catalog</a></li>
-        <li><a href="#shopping-cart">Shopping Cart</a></li>
+        <li><a href="#design-tokens">Design Tokens</a></li>
+        <li><a href="#typography">Typography</a></li>
+        <li><a href="#buttons">Buttons</a></li>
+        <li><a href="#cards">Cards</a></li>
+        <li><a href="#accordion">Accordion</a></li>
+        <li><a href="#Tabs">Tabs</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <section id="welcome">
-      <h1>EB Cycling</h1>
-      <figure>
-        <img src="images/welcome-image.jpg" alt="Electric bike on a grassy hill.">
-        <figcaption>Photo by Abdulmomen Bsruki: <a href="https://www.pexels.com/photo/an-e-bike-in-an-open-field-13989110/">Pexels</a></figcaption>
-      </figure>
-      <article>
-        <h2>Why Ride E-Bikes</h2>
-        <p>Ready to reduce your Carbon footprint? Ready to save money on gas, maintenance, and parking?
-        Or do you just want to go for a smooth, effortless ride? Then an electric bike is for you!</p>
-      </article>
+    <h1>EB Cycling</h1>
+    <section id="design-tokens">
+      <h2>Design Tokens</h2>
+
+      <h3>Color Swatches</h3>
+      <div id="swatch-container">
+        <div id="swatch-bg">
+          <p>Variable name: --color-bg<br>
+             Hex Value: #EDEEFC</p>
+        </div>
+        <div id="swatch-brand">
+          <p>Variable name: --color-brand<br>
+             Hex Value: #0741B5</p>
+        </div>
+        <div id="swatch-text">
+          <p>Variable name: --color-text<br>
+             Hex Value: #363636</p>
+        </div>
+        <div id="swatch-accent">
+          <p>Variable name: --color-accent<br>
+             Hex Value: #DEE9FF</p>
+        </div>
+      </div>
+      
+      <h3>Spacing</h3>
+      <div id="spacing-container">
+        <div id="space-sm">
+          <p>Variable Name: --space-sm<br>
+             Computed Value: 0.75rem</p>
+          <div id="space-sm-rectangle"></div>
+        </div>
+        <div id="space-md">
+          <p>Variable Name: --space-md<br>
+             Computed Value: 1.5rem</p>
+          <div id="space-md-rectangle"></div>
+        </div>
+        <div id="space-lg">
+          <p>Variable Name: --space-lg<br>
+             Computed Value: 3rem</p>
+          <div id="space-lg-rectangle"></div>
+        </div>
+        <div id="space-xl">
+          <p>Variable Name: --space-xl<br>
+             Computed Value: 4rem</p>
+          <div id="space-xl-rectangle"></div>
+        </div>
+      </div>
+
+      <h3>Font Sizes</h3>
+      <div id="font-size-container">
+        <p id="font-sm">Variable Name: --font-sm</p>
+        <p id="font-body">Variable Name: --font-body</p>
+        <p id="font-lg">Variable Name: --font-lg</p>
+        <p id="font-heading">Variable Name: --font-heading</p>
+      </div>
     </section>
 
-    <section id="tips">
-      <h2>Tips for Riding</h2>
-      <figure>
-        <img src="images/tips-image.jpg" alt="Man riding an electric bike with safety gear.">
-        <figcaption>Photo by Robert So: <a href="https://www.pexels.com/photo/cyclist-riding-electric-bike-along-scenic-waterfront-37134604/">Pexels</a></figcaption>
-      </figure>
-      <p>Here are some helpful tips:</p>
-      <ol>
-        <li>Wear a helmet.</li>
-        <li>Don't look down; look where you are going.</li>
-        <li>Be aware. Look for people and cars around you.</li>
-        <li>Make sure your kick-stand is up before riding.</li>
-        <li>Wear reflective gear.</li>
-      </ol>
+    <section id="typography">
+      <h2>Typography</h2>
+      
+      <h3>Headings</h3>
+      <div id="headings">
+        <h1>h1</h1>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <h4>h4</h4>
+      </div>
+
+      <h3>Body Text Paragraph</h3>
+      <div id="body-text">
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit dolor tempore. Consectetur deleniti
+           occaecat ullamco excepturi nostrud dignissimos atque pariatur. Qui similique consequat quos 
+           fuga illum est culpa aut. Nisi dolorum repellendus et sint distinctio animi. Adipiscing facere 
+           rerum deleniti cupiditate nihil magna consequat nam nam velit ut officia. Est labore officia 
+           dolorem quos placeat.</p>
+      </div>
     </section>
 
-    <section id="catalog">
+    <section id="cards">
       <h2>Product Catalog</h2>
       <form id="catalog-options">
         <label for="bike-name">Search Name:</label>
