@@ -4,6 +4,8 @@
     --color-brand: #0741B5;
     --color-text: #363636;
     --color-accent: #DEE9FF;
+    --color-danger: #d64036;
+    --color-next: #62c957;
 
     /* Spacing */
     --space-sm: 0.75rem;
@@ -26,6 +28,7 @@
 
 body {
     color: var(--color-text);
+    background-color: var(--color-bg);
     font-family: var(--main-font);
 }
 
@@ -116,4 +119,30 @@ h4 {
 p {
     line-height: var(--space-md);
     max-width: 60ch;
+}
+
+/* Button styles */
+
+button {
+    border: none;
+}
+
+.primary-button {
+    color: var(--color-accent);
+    background-color: var(--color-brand);
+}
+
+.secondary-button {
+    color: var(--color-accent);
+    background-color: var(--color-text);
+}
+
+.danger-button {
+    color: var(--color-accent);
+    background-color: var(--color-danger);
+}
+
+.icon-button {
+    color: var(--color-text);
+    background-color: var(--color-next);
 }
