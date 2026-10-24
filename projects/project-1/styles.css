@@ -6,6 +6,19 @@
     --color-accent: #DEE9FF;
     --color-danger: #d64036;
     --color-next: #62c957;
+    --color-focus: #fca532;
+
+    /* Hover colors */
+    --color-brand-hover: #07348f;
+    --color-text-hover: #474747;
+    --color-danger-hover: #bf3930;
+    --color-next-hover: #51ad47;
+    
+    /* Disabled */
+    --color-brand-disable: #122242;
+    --color-text-disable: #949292;
+    --color-danger-disable: #6b221d;
+    --color-next-disable: #2c5927;
 
     /* Spacing */
     --space-sm: 0.75rem;
@@ -22,6 +35,19 @@
     /* Font families */
     --main-font: Helvetica;
     --backup-font: Arial;
+
+    /* Image dimensions */
+    --img-width: 300px;
+    --img-height: 220px;
+
+    /* Text container width for the cards */
+    --text-container-width: 200px;
+
+    /* Card dimensions */
+    --basic-card-width: 350px;
+    --basic-card-height: 475px;
+    --horizontal-card-width: 550px;
+    --horizontal-card-height: 300px;
 }
 
 /* Body styles */
@@ -127,22 +153,141 @@ button {
     border: none;
 }
 
+/* Primary button */
+
 .primary-button {
     color: var(--color-accent);
     background-color: var(--color-brand);
 }
+
+.primary-button:hover {
+   background-color: var(--color-brand-hover); 
+}
+
+.primary-button-hover {
+    color: var(--color-accent);
+    background-color: var(--color-brand-hover);
+}
+
+.primary-button-focus {
+    border: 2px solid var(--color-focus);
+    color: var(--color-accent);
+    background-color: var(--color-brand);
+}
+
+.primary-button:disabled {
+    background-color: var(--color-brand-disable);
+    text-decoration: line-through;
+}
+
+/* Secondary button */
 
 .secondary-button {
     color: var(--color-accent);
     background-color: var(--color-text);
 }
 
+.secondary-button:hover {
+   background-color: var(--color-text-hover); 
+}
+
+.secondary-button-hover {
+    color: var(--color-accent);
+    background-color: var(--color-text-hover);
+}
+
+.secondary-button-focus {
+    border: 2px solid var(--color-focus);
+    color: var(--color-accent);
+    background-color: var(--color-text);
+}
+
+.secondary-button:disabled {
+    background-color: var(--color-text-disable);
+    text-decoration: line-through;
+}
+
+/* Danger button */
+
 .danger-button {
     color: var(--color-accent);
     background-color: var(--color-danger);
 }
 
+.danger-button:hover {
+   background-color: var(--color-danger-hover); 
+}
+
+.danger-button-hover {
+    color: var(--color-accent);
+    background-color: var(--color-danger-hover);
+}
+
+.danger-button-focus {
+    border: 2px solid var(--color-focus);
+    color: var(--color-accent);
+    background-color: var(--color-danger);
+}
+
+.danger-button:disabled {
+    background-color: var(--color-danger-disable);
+    text-decoration: line-through;
+}
+
+/* Icon button */
+
 .icon-button {
     color: var(--color-text);
     background-color: var(--color-next);
+}
+
+.icon-button:hover {
+   background-color: var(--color-next-hover); 
+}
+
+.icon-button-hover {
+    color: var(--color-text);
+    background-color: var(--color-next-hover);
+}
+
+.icon-button-focus {
+    border: 2px solid var(--color-focus);
+    color: var(--color-text);
+    background-color: var(--color-next);
+}
+
+.icon-button:disabled {
+    background-color: var(--color-next-disable);
+}
+
+/* Bike card styles */
+
+.bike-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.card-img {
+    width: var(--img-width);
+    height: var(--img-height);
+}
+
+.basic-bike-card {
+    background-color: var(--color-accent);
+    width: var(--basic-card-width);
+    height: var(--basic-card-height);
+}
+
+.horizontal-bike-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-accent);
+    width: var(--horizontal-card-width);
+    height: var(--horizontal-card-height);
+}
+
+.card-text-container {
+    width: var(--text-container-width);
 }
