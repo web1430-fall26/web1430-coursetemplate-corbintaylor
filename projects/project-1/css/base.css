@@ -1,0 +1,68 @@
+/* Reset */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Root variables */
+
+:root {
+    /* Colors */
+    --color-bg: #EDEEFC;
+    --color-brand: #0741B5;
+    --color-text: #363636;
+    --color-accent: #DEE9FF;
+    --color-danger: #d64036;
+    --color-next: #62c957;
+    --color-focus: #fca532;
+
+    /* Hover colors */
+    --color-brand-hover: #07348f;
+    --color-text-hover: #474747;
+    --color-danger-hover: #bf3930;
+    --color-next-hover: #51ad47;
+    
+    /* Disabled */
+    --color-brand-disable: #122242;
+    --color-text-disable: #949292;
+    --color-danger-disable: #6b221d;
+    --color-next-disable: #2c5927;
+
+    /* Spacing */
+    --space-sm: 0.75rem;
+    --space-md: 1.5rem;
+    --space-lg: 3rem;
+    --space-xl: 4rem;
+
+    /* Font sizes */
+    --font-sm: 1rem;
+    --font-body: 1.25rem;
+    --font-lg: 1.5rem;
+    --font-heading: 1.75rem;
+
+    /* Font families */
+    --main-font: Helvetica;
+    --backup-font: Arial;
+
+    /* Image dimensions */
+    --img-width: 300px;
+    --img-height: 220px;
+
+    /* Text container width for the cards */
+    --text-container-width: 200px;
+
+    /* Card dimensions */
+    --basic-card-width: 350px;
+    --basic-card-height: 475px;
+    --horizontal-card-width: 550px;
+    --horizontal-card-height: 300px;
+
+    /* Max paragraph width */
+    --pg-width: 60ch;
+
+    /* Focus ring width */
+    --focus-width: 2px;
+
+    /* None */
+    --none: 0;
+}

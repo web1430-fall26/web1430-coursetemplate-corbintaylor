@@ -4,20 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project 1 - EB Cycling</title>
-  <link rel="stylesheet" href="styles.css">
-  <script type="module" src="project1.js" defer></script>
-  <script type="module" src="data.js" defer></script>
+  <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
   <header>
     <nav id="nav-bar">
-      <ul>
-        <li><a href="#design-tokens">Design Tokens</a></li>
-        <li><a href="#typography">Typography</a></li>
-        <li><a href="#buttons">Buttons</a></li>
-        <li><a href="#cards">Cards</a></li>
-        <li><a href="#accordion">Accordion</a></li>
-        <li><a href="#Tabs">Tabs</a></li>
+      <ul id="nav-items">
+        <li class="nav-item"><a class="nav-link" href="#">EB Cycling</a></li>
+        <li class="nav-item"><a class="nav-link" href="#design-tokens">Design Tokens</a></li>
+        <li class="nav-item"><a class="nav-link" href="#typography">Typography</a></li>
+        <li class="nav-item"><a class="nav-link" href="#buttons">Buttons</a></li>
+        <li class="nav-item"><a class="nav-link" href="#cards">Cards</a></li>
+        <li class="nav-item"><a class="nav-link" href="#interactive-patterns">Interactive Patterns</a>
       </ul>
     </nav>
   </header>
@@ -84,7 +82,7 @@
       
       <h3>Headings</h3>
       <div id="headings">
-        <h1>h1</h1>
+        <h2 class="h1">h1</h2>
         <h2>h2</h2>
         <h3>h3</h3>
         <h4>h4</h4>
@@ -92,7 +90,7 @@
 
       <h3>Body Text Paragraph</h3>
       <div id="body-text">
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit dolor tempore. Consectetur deleniti
+        <p class="block-paragraph">Lorem ipsum dolor sit amet consectetur adipiscing elit dolor tempore. Consectetur deleniti
            occaecat ullamco excepturi nostrud dignissimos atque pariatur. Qui similique consequat quos 
            fuga illum est culpa aut. Nisi dolorum repellendus et sint distinctio animi. Adipiscing facere 
            rerum deleniti cupiditate nihil magna consequat nam nam velit ut officia. Est labore officia 
@@ -168,18 +166,78 @@
     <section id="interactive-patterns">
       <h2>Interactive Patterns</h2>
 
-      <h3>Accordion</h3>
+      <section id="accordion">
+        <h3>Accordion</h3>
+        <div class="accordion-set">
+          <button class="accordion-question" aria-expanded="false" aria-controls="accordion-answer-1">
+            How far can I actually ride on a single charge?
+          </button>
+          <div id="accordion-answer-1" class="accordion-answer" hidden>
+            <p>Typically 60-70% of the advertized range.</p>
+          </div>
+        </div>
 
-      <h3>Tab List</h3>
+        <div class="accordion-set">
+          <button class="accordion-question" aria-expanded="false" aria-controls="accordion-answer-2">
+            How do I properly care for the battery?
+          </button>
+          <div id="accordion-answer-2" class="accordion-answer" hidden>
+            <p>Don't keep the battery at 100%. Keep it around 80% for daily usage.</p>
+          </div>
+        </div>
+
+        <div class="accordion-set">
+          <button class="accordion-question" aria-expanded="false" aria-controls="accordion-answer-3">
+            How much should I spend?
+          </button>
+          <div id="accordion-answer-3" class="accordion-answer" hidden>
+            <p>For a reliable e-bike, plan on spending between $1000-$2500.</p>
+          </div>
+        </div>
+
+        <div class="accordion-set">
+          <button class="accordion-question" aria-expanded="false" aria-controls="accordion-answer-4">
+            Integrated vs. removable batteries: Which is better?
+          </button>
+          <div id="accordion-answer-4" class="accordion-answer" hidden>
+            <p>Integrated batteries are better for balance, while 
+             removable batteries allow you to easily charge inside.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="tabbed-interface">
+        <h3>Tab List</h3>
+        <div class="tab-list" role="tablist" aria-label="Electric bike brand information.">
+          <button class="primary-button" role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1">Aventon</button>
+          <button class="primary-button" role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2">Urtopia</button>
+          <button class="primary-button" role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3">Rad Power Bikes</button>
+        </div>
+
+        <div role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+          <p>Known for sleek designs that are good for urban commuting.</p>
+        </div>
+
+        <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+          <p>The frames are carbon fiber, making them very lightweight.</p>
+        </div>
+
+        <div role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
+          <p>Affordable, utility-first e-bikes.</p>
+        </div>
+      </section>
     </section>
   </main>
   <footer>
-    <p>&copy; 2026 EB Cycling. All rights reserved.</p>
-      <nav aria-label="Social Links">
-        <a href="#">X</a>
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
+    <p class="footer-text">&copy; 2026 EB Cycling. All rights reserved.</p>
+      <nav id="footer-nav" aria-label="Social Links">
+        <a class="nav-link" href="#">X</a>
+        <a class="nav-link" href="#">Facebook</a>
+        <a class="nav-link" href="#">Instagram</a>
       </nav>
   </footer>
+  <script type="module" src="js/patterns.js"></script>
+  <script type="module" src="js/data.js"></script>
+  <script type="module" src="js/render.js"></script>
 </body>
 </html>

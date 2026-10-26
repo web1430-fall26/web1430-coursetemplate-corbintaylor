@@ -1,11 +1,7 @@
-import {eBikeData} from "./data.js";
-
-// HTML Elements
-const basicBikeCardContainer = document.querySelector("#basic-bike-card-container");
-const horizontalBikeCardContainer = document.querySelector("#horizontal-bike-card-container");
+// Provides the card rendering functions.
 
 // Product card render function
-function renderBasicBikeCard(bike) {
+export function renderBasicBikeCard(bike) {
     // Add elements
     const bikeCard = document.createElement('article');
     bikeCard.classList.add('basic-bike-card');
@@ -13,6 +9,7 @@ function renderBasicBikeCard(bike) {
     const bikeImg = document.createElement('img');
     bikeImg.classList.add('card-img');
     bikeImg.src = bike.img;
+    bikeImg.alt = bike.alt;
 
     const bikeName = document.createElement('h3');
     bikeName.textContent = bike.name;
@@ -36,7 +33,7 @@ function renderBasicBikeCard(bike) {
     return bikeCard;
 }
 
-function renderHorizontalBikeCard(bike) {
+export function renderHorizontalBikeCard(bike) {
     // Add elements
     const bikeCard = document.createElement('article');
     bikeCard.classList.add('horizontal-bike-card');
@@ -63,6 +60,7 @@ function renderHorizontalBikeCard(bike) {
     const bikeImg = document.createElement('img');
     bikeImg.classList.add('card-img');
     bikeImg.src = bike.img;
+    bikeImg.alt = bike.alt;
 
     // Appends the text to a div specifically for the text to style it separately
     textDiv.append(bikeName, price, maxDistance, batteryLife, buyBtn);
@@ -70,18 +68,3 @@ function renderHorizontalBikeCard(bike) {
 
     return bikeCard;
 }
-
-function initBikeCards(bikesList, normContain, horiContain) {
-    // Renders the cards in the normal format
-    bikesList.forEach(bike => {
-        normContain.append(renderBasicBikeCard(bike));
-    });
-    // Renders the cards in the horizontal format
-    bikesList.forEach(bike => {
-        horiContain.append(renderHorizontalBikeCard(bike));
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    initBikeCards(eBikeData, basicBikeCardContainer, horizontalBikeCardContainer);
-});
