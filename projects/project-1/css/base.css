@@ -12,21 +12,21 @@
     --color-brand: #0741B5;
     --color-text: #363636;
     --color-accent: #DEE9FF;
-    --color-danger: #d64036;
-    --color-next: #62c957;
+    --color-danger: #bc372d;
+    --color-next: #76f068;
     --color-focus: #fca532;
 
     /* Hover colors */
-    --color-brand-hover: #07348f;
-    --color-text-hover: #474747;
-    --color-danger-hover: #bf3930;
-    --color-next-hover: #51ad47;
+    --color-brand-hover: #03215d;
+    --color-text-hover: #575757;
+    --color-danger-hover: #82241d;
+    --color-next-hover: #57be4c;
     
     /* Disabled */
     --color-brand-disable: #122242;
-    --color-text-disable: #949292;
+    --color-text-disable: #656565;
     --color-danger-disable: #6b221d;
-    --color-next-disable: #2c5927;
+    --color-next-disable: #90b38c;
 
     /* Spacing */
     --space-sm: 0.75rem;

@@ -37,6 +37,69 @@ main {
     background-color: var(--color-accent);
 }
 
+#swatch-danger {
+    background-color: var(--color-danger);
+    color: var(--color-accent);
+}
+
+#swatch-next {
+    background-color: var(--color-next);
+}
+
+#swatch-focus {
+    background-color: var(--color-focus);
+}
+
+#swatch-brand-hover {
+    background-color: var(--color-brand-hover);
+    color: var(--color-accent);
+}
+
+#swatch-text-hover {
+    background-color: var(--color-text-hover);
+    color: var(--color-accent);
+}
+
+#swatch-danger-hover {
+    background-color: var(--color-danger-hover);
+    color: var(--color-accent);
+}
+
+#swatch-next-hover {
+    background-color: var(--color-next-hover);
+}
+
+#swatch-brand-disable {
+    background-color: var(--color-brand-disable);
+    color: var(--color-accent);
+}
+
+#swatch-text-disable {
+    background-color: var(--color-text-disable);
+    color: var(--color-accent);
+}
+
+#swatch-danger-disable {
+    background-color: var(--color-danger-disable);
+    color: var(--color-accent);
+}
+
+#swatch-next-disable {
+    background-color: var(--color-next-disable);
+}
+
+#swatch-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.swatch {
+    width: var(--text-container-width);
+    padding: var(--space-sm);
+}
+
 /* Space rectangle styles */
 
 #space-sm-rectangle {
@@ -366,5 +429,18 @@ footer {
     .bike-container {
         display: grid;
         grid-template-columns: 50% 50%;
+    }
+
+    /* Swatches */
+
+    #swatch-container {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        gap: var(--space-sm);
+    }
+
+    .swatch {
+        width: var(--text-container-width);
+        padding: var(--space-sm);
     }
 }
