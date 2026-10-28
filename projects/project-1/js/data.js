@@ -15,3 +15,6 @@ export const accordionContainer = document.querySelector("#accordion");
 export const tabContainer = document.querySelector("#tabbed-interface");
 export const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
 export const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+export const navItems = document.querySelector('#nav-items');
+export const expandBtn = document.querySelector('#expand-nav');
+export const mediaQuery = window.matchMedia('(min-width: 600px');

@@ -58,7 +58,7 @@ export function renderHorizontalBikeCard(bike) {
     buyBtn.textContent = `Buy Now`;
 
     const bikeImg = document.createElement('img');
-    bikeImg.classList.add('card-img');
+    bikeImg.classList.add('card-img-horizontal');
     bikeImg.src = bike.img;
     bikeImg.alt = bike.alt;
 

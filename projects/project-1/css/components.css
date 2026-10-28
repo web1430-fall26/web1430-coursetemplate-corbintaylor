@@ -292,50 +292,73 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: var(--space-md);
 }
 
 .card-img {
-    width: var(--img-width);
-    height: var(--img-height);
+    width: 100%;
+    height: auto;
+    padding: var(--space-sm);
+}
+
+.card-img-horizontal {
+    width: 70%;
+    height: auto;
+    padding: var(--space-sm);
 }
 
 .basic-bike-card {
     background-color: var(--color-accent);
-    width: var(--basic-card-width);
-    height: var(--basic-card-height);
     margin: var(--space-md);
     padding: var(--space-sm);
+    width: 100%;
+    height: auto;
 }
 
 .horizontal-bike-card {
     display: flex;
     align-items: center;
     background-color: var(--color-accent);
-    width: var(--horizontal-card-width);
-    height: var(--horizontal-card-height);
     margin: var(--space-md);
     padding: var(--space-sm);
+    width: 100%;
+    height: auto;
 }
 
 .card-text-container {
-    width: var(--text-container-width);
+    width: 30%;
 }
 
 /* Nav bar */
 
+#nav-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex end;
+    background-color: var(--color-brand);
+    margin: var(--none);
+}
+
 #nav-items {
-    display: none;
-    padding: var(--space-md);
+    padding: var(--space-sm);
+    gap: var(--space-sm);
+    text-align: center;
 }
 
 .nav-item {
     list-style-type: none;
+    padding: var(--space-sm);
 }
 
 .nav-link {
     text-decoration: none;
     color: var(--color-accent);
+}
+
+#expand-nav {
+    margin: var(--space-sm);
 }
 
 /* Accordion */
@@ -415,6 +438,10 @@ footer {
 @media (min-width: 600px) {
     /* Nav bar */
 
+    #nav-bar {
+        flex-direction: row;
+    }
+
     #nav-items {
         display: flex;
         align-items: center;
@@ -422,6 +449,10 @@ footer {
         background-color: var(--color-brand);
         color: var(--color-accent);
         margin: none;   
+    }
+
+    #expand-nav {
+        display: none;
     }
 
     /* Bike cards */

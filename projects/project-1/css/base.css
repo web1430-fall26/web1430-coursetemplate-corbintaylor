@@ -44,19 +44,6 @@
     --main-font: Helvetica;
     --backup-font: Arial;
 
-    /* Image dimensions */
-    --img-width: 300px;
-    --img-height: 220px;
-
-    /* Text container width for the cards */
-    --text-container-width: 200px;
-
-    /* Card dimensions */
-    --basic-card-width: 350px;
-    --basic-card-height: 475px;
-    --horizontal-card-width: 550px;
-    --horizontal-card-height: 300px;
-
     /* Max paragraph width */
     --pg-width: 60ch;
 

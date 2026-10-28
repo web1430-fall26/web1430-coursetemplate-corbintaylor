@@ -2,7 +2,7 @@
 
 import {eBikeData, basicBikeCardContainer, horizontalBikeCardContainer,
         accordionQuestions, accordionContainer, tabContainer, tabs, 
-        panels} from "./data.js";
+        panels, navItems, expandBtn, mediaQuery} from "./data.js";
 import {renderBasicBikeCard, renderHorizontalBikeCard} from "./render.js";
 
 function initBikeCards(bikesList, normContain, horiContain) {
@@ -106,8 +106,25 @@ function initTabs(tabListContainer) {
     });
 }
 
+function initExpandButton(expandBtn, navItems) {
+    expandBtn.addEventListener('click', (event) => {
+        // Hides or displays the links
+        navItems.toggleAttribute('hidden');
+
+        // Sets aria-expanded to true if the links are visible and false if not
+        if (navItems.hidden) {
+            expandBtn.setAttribute('aria-expanded', 'false');
+            event.target.textContent = `Expand Links`;
+        } else {
+            expandBtn.setAttribute('aria-expanded', 'true');
+            event.target.textContent = `Collapse Links`;
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initBikeCards(eBikeData, basicBikeCardContainer, horizontalBikeCardContainer);
     initAccordion(accordionContainer);
     initTabs(tabContainer);
+    initExpandButton(expandBtn, navItems);
 });
