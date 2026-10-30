@@ -1,0 +1,3 @@
+# Process Reflection
+
+Response.ok tells you if a Promise resolved, but came back with some sort of server error, like 404 Not Found or 500 Server Error. The catch block just checks for network errors, not server errors. Removing the await with the try block was the most confusing because the network error instantly displayed. Taking the other awaits out didn't seem to affect much. I made the loading and error states accessible with a screen reader by using aria-live="polite". This ARIA attribute announces a change to the #results-region after the user is done with whatever they may be doing. This allows users with screen readers to be notified nicely of changes.
