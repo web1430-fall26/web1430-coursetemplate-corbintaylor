@@ -43,7 +43,7 @@ function normalizeBooks(docs) {
     title: doc.title || 'Unknown Title',
     // Uses a ternary operator to check if the author exists. If it does,
     // the first author (might be from a list) is chosen; otherwise 'Unknown Author'
-    author: doc.author_name ? doc.author_name[0] : 'Unknown Author',
+    author: doc.author_name?.[0] ?? 'Unknown Author',
     // Same strategy for the title
     year: doc.first_publish_year || 'Unknown Year',
   }));
@@ -128,8 +128,11 @@ function renderBooks(books) {
     bookCard.append(title, author, year);
     resultsRegion.append(bookCard);
   });
+}
 
-  
+function hideLoading() {
+  // Hides the loading message
+  document.querySelector('status-loading').hidden = true;
 }
 
 // ─── Part 4: Search handler ───────────────────────────────────────────────
@@ -160,5 +163,7 @@ form.addEventListener('submit', async (event) => {
   } catch (error) {
     showError('Unable to load results. Please check your connection and try again.');
     console.error(error);
+  } finally {
+    hideLoading();
   }
 });
