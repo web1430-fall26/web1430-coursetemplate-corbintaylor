@@ -8,6 +8,8 @@ const DEFAULTS = {
 };
 const STORAGE_KEY = 'reading-prefs';
 
+const STORAGE_WARNING = document.getElementById('storage-warning');
+
 // ─── Part 3: Preferences functions ───────────────────────────────────────
 
 // loadPreferences()
@@ -26,7 +28,21 @@ function loadPreferences() {
 // savePreferences(prefs)
 // Serializes the prefs object and writes it to localStorage.
 function savePreferences(prefs) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));
+  // Saves the preferences using the STORAGE_KEY as the name, but also handles full storage
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));
+  } catch (error) {
+    if (error.name === 'QuotaExceededError') {
+      console.warn('localStorage quota exceeded. Preferences will not be saved in this session.');
+      showStorageWarning();
+    }
+  }
+}
+
+function showStorageWarning() {
+  if (STORAGE_WARNING) {
+    STORAGE_WARNING.hidden = false;
+  }
 }
 
 // applyPreferences(prefs, articleEl)
@@ -72,7 +88,36 @@ document.addEventListener('DOMContentLoaded', () => {
   // When a radio changes, load the current prefs, update the changed property,
   // save the updated prefs, and apply them.
 
+  panel.addEventListener('change', (event) => {
+    // Gets the updated preferences based on the radio element
+    const updatedPrefs = loadPreferences();
+
+    // Depending on the value updated, the preferences object is updated
+    if (event.target.name === 'theme') {
+      updatedPrefs.theme = event.target.value;
+    }
+    if (event.target.name === 'font-size') {
+      updatedPrefs.fontSize = event.target.value;
+    }
+    if (event.target.name === 'spacing') {
+      updatedPrefs.spacing = event.target.value;
+    }
+
+    // Saves the updated preferences object
+    savePreferences(updatedPrefs);
+    // Applies the new preferences
+    applyPreferences(updatedPrefs, article);
+  });
+
   // 3. Reset button
   // TODO: Add a 'click' listener to resetBtn.
   // Save DEFAULTS, apply DEFAULTS, and sync the radio buttons.
+
+  resetBtn.addEventListener('click', () => {
+    // Applies the defaults if the reset button is clicked
+    // Uses the spread operator (...) to unpack the DEFAULTS object
+    savePreferences({...DEFAULTS});
+    applyPreferences(DEFAULTS, article);
+    syncRadioButtons(DEFAULTS);
+  });
 });
