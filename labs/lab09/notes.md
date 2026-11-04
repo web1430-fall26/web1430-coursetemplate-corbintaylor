@@ -1,0 +1,3 @@
+# Process Reflection
+
+Without using JSON.stringify(), the value stored when the user makes changes to their preferences is "[object Object]", which doesn't mean anything. This prevents the saved preferences from loading on refresh. To test the first visit experience, I used localStorage.clear() in the console to wipe out existing preferences. Local storage saves the data across tabs and refreshes, while session storage saves the data on refresh, but only on the same tab. Session storage would not be appropriate for storing user preferences because a user will likely use different tabs or open the website after having turned off their browser. Local storage allows a user's preferences to persist even in the event of closing down your browser or using a different tab. 
