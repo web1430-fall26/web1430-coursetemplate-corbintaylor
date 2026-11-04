@@ -2,9 +2,12 @@
 const baseURL = `https://openlibrary.org/search.json`;
 
 // DOM references
-const input     = document.querySelector('#search-input');
-const results   = document.querySelector('#results');
-const form      = document.querySelector('#search-form');
+const input      = document.querySelector('#search-input');
+const results    = document.querySelector('#results');
+const form       = document.querySelector('#search-form');
+const loadingMsg = document.querySelector('.status-loading');
+const errorMsg   = document.querySelector('.status-error');
+const emptyMsg   = document.querySelector('.status-empty');
 
 async function fetchBooks(title) {
     // Fetches the books based on the title and returns a JSON file
@@ -13,6 +16,7 @@ async function fetchBooks(title) {
     const response = await fetch(url);
 
     if (!response.ok) {
+        showError(`Server request failed: ${response.status}`);
         throw new Error(`Request failed: ${response.status}`);
     }
 
@@ -23,45 +27,41 @@ function normalizeBooks(docs) {
     // Returns an array of books 
     return docs.map(doc => ({
         title: doc.title || 'Unknown Title',
-        author: doc.author_name ? doc.author_name[0] : 'Unknown Author',
+        author: doc.author_name?.[0] ?? 'Unknown Author',
         year: doc.first_publish_year || 'Unknown Year'
     }));
 }
 
 function showLoading() {
-    // Handles the loading message
-    results.textContent = "";
-
-    const loadingMsg = document.createElement('p');
-    loadingMsg.classList.add('status-loading');
-    loadingMsg.textContent = "Searching for books...";
-
-    results.append(loadingMsg);
+    // Shows the loading message
+    loadingMsg.hidden = false;
 }
 
+function hideLoading() {
+    // Hides the loading message
+    loadingMsg.hidden = true;
+}
 
 function showError(message) {
-    // Handles the error message
-    results.textContent = "";
-
-    const errorMsg = document.createElement('p');
-    errorMsg.classList.add('status-error');
+    // Shows the error message
     errorMsg.textContent = message;
+    errorMsg.hidden = false;
+}
 
-    results.append(errorMsg);
+function hideError() {
+    // Hides the error message
+    errorMsg.hidden = true;
 }
 
 function showEmpty() {
-    // Handles the case where no books are found
-    results.textContent = "";
-
-    const emptyMsg = document.createElement('p');
-    emptyMsg.classList.add('status-empty');
-    emptyMsg.textContent = "No books found. Try a different search term.";
-
-    results.append(emptyMsg);
+    // Shows the no books found message
+    emptyMsg.hidden = false;
 }
 
+function hideEmpty() {
+    // Hides the no books found message
+    emptyMsg.hidden = true;
+}
 
 function renderBooks(books) {
     // Renders the book title with an expand button and region for the details
@@ -80,6 +80,7 @@ function renderBooks(books) {
 
         const cardDetails = document.createElement('div');
         cardDetails.classList.add('card-details');
+        cardDetails.setAttribute('tabindex', '0');
 
         // Author and year are in a separate details div that gets hidden
         const author = document.createElement('p');
@@ -96,14 +97,19 @@ function renderBooks(books) {
     });
 }
 
-results.addEventListener('click', async (event) => {
+function clearBooks() {
+    // Clears the books 
+    results.textContent = "";
+}
+
+results.addEventListener('click', (event) => {
     // Uses event delegation to handle the expand button
     if (event.target.matches('.expand-button')) {
         event.target.nextElementSibling.toggleAttribute('hidden');
         
         if (!event.target.nextElementSibling.hidden) {
             event.target.textContent = "Collapse Details";
-            event.target.focus();
+            event.target.nextElementSibling.focus();
         } else {
             event.target.textContent = "Expand Details";
         }
@@ -112,6 +118,9 @@ results.addEventListener('click', async (event) => {
 
 async function handleSubmit(inputValue) {
     // Separate function to handle the submit so that an initial dataset load can use the same code
+    hideError();
+    hideEmpty();
+    
     const title = inputValue.trim();
 
     if (!title) {
@@ -127,12 +136,16 @@ async function handleSubmit(inputValue) {
 
         if (books.length === 0) {
             showEmpty();
+            clearBooks();
         } else {
             renderBooks(books);
         }
     } catch (error) {
         showError('Unable to load results. Please check your connection and try again.');
         console.error(error);
+        clearBooks();
+    } finally {
+        hideLoading();
     }
 }
 
