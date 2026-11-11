@@ -50,6 +50,7 @@ function showStorageWarning() {
 // Removes all existing theme-*, font-*, and spacing-* classes first,
 // then adds the new ones.
 function applyPreferences(prefs, articleEl) {
+  if (!prefs) return;
   articleEl.className = articleEl.className
     .split(' ')
     .filter(cls =>
@@ -117,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Applies the defaults if the reset button is clicked
     // Uses the spread operator (...) to unpack the DEFAULTS object
     savePreferences({...DEFAULTS});
-    applyPreferences(DEFAULTS, article);
+    applyPreferences(null, article);
     syncRadioButtons(DEFAULTS);
   });
 });
