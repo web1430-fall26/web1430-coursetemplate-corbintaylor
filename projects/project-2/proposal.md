@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-This app is for adults who read the Bible. Some adults want to read the Bible, but they do not have time to do so. Sitting down to read and study for a period of time can be a big commitment for many. This app will provide a way to easily find a chapter of the Bible to read.
+This app is for college students who read the Bible. Some college students want to read the Bible, but between homework, a job, and other commitments, finding time can be difficult. This app will provide a way to easily find a chapter of the Bible to read wherever a college student may be, without the need of dusting off a physical copy. 
 
 ## API
 
@@ -54,6 +54,13 @@ Example of a raw response:
     previous: 'GEN.intro'
 }
 ```
+
+Mappings from the raw response:
+- reference: data.reference
+- content: data.content
+- copyright: data.copyright
+- next: data.next.id
+- previous: data.previous.id
 
 ## UI Sketches
 
