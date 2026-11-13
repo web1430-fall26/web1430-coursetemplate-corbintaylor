@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 5 - Modular Refactor</title>
+</head>
+<body>
+  <main>
+    <h1>Open Library Book Search</h1>
+    
+    <form id="search-form">
+      <label for="search-input">Search by title:</label>
+      <input type="search" id="search-input">
+      <button type="submit">Search</button>
+    </form>
+
+    <div id="messages" aria-live="polite">
+      <p class="status-loading" hidden>Searching for books...</p>
+      <p class="status-error" hidden></p>
+      <p class="status-empty" hidden>No books found. Try a different search term.</p>
+    </div>
+    
+    <div id="results" aria-live="polite"></div>
+    <script type="module" src="src/main.js"></script>
+  </main>
+</body>
+</html>
