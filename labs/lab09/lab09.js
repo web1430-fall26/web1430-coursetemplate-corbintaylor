@@ -68,6 +68,10 @@ function applyPreferences(prefs, articleEl) {
 // syncRadioButtons(prefs)
 // Sets the correct radio button to checked based on the prefs object.
 function syncRadioButtons(prefs) {
+  if (!prefs) {
+    prefs = DEFAULTS;
+  }
+
   document.querySelector(`[name="theme"][value="${prefs.theme}"]`).checked = true;
   document.querySelector(`[name="font-size"][value="${prefs.fontSize}"]`).checked = true;
   document.querySelector(`[name="spacing"][value="${prefs.spacing}"]`).checked = true;
@@ -118,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Applies the defaults if the reset button is clicked
     // Uses the spread operator (...) to unpack the DEFAULTS object
     savePreferences({...DEFAULTS});
-    applyPreferences(null, article);
+    applyPreferences(DEFAULTS, article);
     syncRadioButtons(DEFAULTS);
   });
 });
