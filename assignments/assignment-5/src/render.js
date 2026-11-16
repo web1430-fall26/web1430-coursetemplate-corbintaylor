@@ -1,10 +1,6 @@
 // All rendering functions for the app.
 
-// DOM references
-const results    = document.querySelector('#results');
-const loadingMsg = document.querySelector('.status-loading');
-const errorMsg   = document.querySelector('.status-error');
-const emptyMsg   = document.querySelector('.status-empty');
+import { loadingMsg, errorMsg, emptyMsg, results } from './constants.js';
 
 export function showLoading() {
     // Shows the loading message

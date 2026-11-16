@@ -1,16 +1,14 @@
 // Handles all API calls.
 
-import { baseURL } from './constants.js';
-import { showError } from './render.js';
+import { BASE_URL, RESULT_LIMIT } from './constants.js';
 
 export async function fetchBooks(title) {
     // Fetches the books based on the title and returns a JSON file
-    const url = `${baseURL}?title=${encodeURIComponent(title)}&limit=10`;
+    const url = `${BASE_URL}?title=${encodeURIComponent(title)}&limit=${RESULT_LIMIT}`;
 
     const response = await fetch(url);
 
     if (!response.ok) {
-        showError(`Server request failed: ${response.status}`);
         throw new Error(`Request failed: ${response.status}`);
     }
 

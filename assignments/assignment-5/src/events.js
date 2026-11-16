@@ -1,10 +1,7 @@
 // All event listeners.
 
 import { handleExpand, handleSubmit } from './btn-handlers.js';
-
-const input = document.querySelector('#search-input');
-const form  = document.querySelector('#search-form');
-const results = document.querySelector('#results');
+import { results, form, input } from './constants.js';
 
 export function initBookSearch() {
     results.addEventListener('click', (event) => {
