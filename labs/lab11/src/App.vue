@@ -16,6 +16,7 @@ const members = ref([
 const selectedDepartment = ref('All');
 
 const departments = computed(() => {
+  // Creates a new set based on the departments of the members
   const depts = [...new Set(members.value.map(m => m.department))];
   return ['All', ...depts];
 });
