@@ -1,3 +1,5 @@
+// Normalizes the chapter and books provided by the API.
+
 export function normalizeChapter(chapter) {
     // Normalizes a chapter object provided by the API
     return {
@@ -12,7 +14,8 @@ export function normalizeChapter(chapter) {
 export function normalizeBooks(books) {
     // Normalizes the array of books in the NIV Bible provided by the API
     return books.data.map(book => ({
-        name: book.name || 'Name unavailable',
-        chapterCount: book.chapters.number || 'Chapter count unavailable'
+        reference: book.name.toUpperCase() || 'Reference unavailable',
+        name: book.nameLong || 'Name unavailable',
+        chapterCount: book.chapters.length - 1 || 'Chapter count unavailable'
     }));
 }

@@ -1,7 +1,6 @@
 // Performs the API calls for a specific chapter, the available books, and the chapter count.
 
 import { API_KEY, API_ENDPOINT, NIV_BIBLE_ID } from './const.js';
-import { normalizeBooks } from './normalize.js';
 
 export async function fetchChapter(chapterId) {
     // Fetches a chapter based on a chapter ID
@@ -34,8 +33,3 @@ export async function fetchBooks() {
 
     return response.json();
 }
-
-const books = await fetchBooks();
-const normalizedBooks = normalizeBooks(books);
-
-console.log(normalizedBooks[2]);
