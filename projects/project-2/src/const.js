@@ -1,4 +1,4 @@
-// Contains the API information and class name constants.
+// Contains the API information,class name constants, and preference constants.
 
 // API information
 export const API_KEY = 'ov8cpeH0rC4-K15oTbj2D';
@@ -17,3 +17,14 @@ export const SEARCH_BTN = 'search-btn';
 export const LOADING_MSG = 'loading-msg';
 export const ERROR_MSG = 'error-msg';
 export const EMPTY_MSG = 'empty-msg';
+export const PREFERENCE_CONTROLS = 'preference-controls';
+export const RESET_BTN = 'reset-btn';
+
+// Preference constants
+export const DEFAULTS = {
+    theme: 'light',
+    fontSize: 'medium',
+    fontFamily: 'helvetica'
+}
+export const STORAGE_KEY = 'user-prefs';
+export const STORAGE_WARNING = 'storage-warning';

@@ -8,13 +8,46 @@
   <body>
     <h1>Bible Chapter Query</h1>
 
-    <label for="book-filter">Book:</label>
-    <select id="book-filter"></select>
+    <div id="chapter-controls">
+      <label for="book-filter">Book:</label>
+      <select id="book-filter"></select>
 
-    <label for="chapter-filter">Chapter:</label>
-    <select id="chapter-filter"></select>
+      <label for="chapter-filter">Chapter:</label>
+      <select id="chapter-filter"></select>
 
-    <button id="search-btn">Search</button>
+      <button id="search-btn" type="button">Search</button>
+    </div>
+
+    <div id="preference-controls">
+      <h2>Preferences</h2>
+
+      <p id="storage-warning" role="alert" hidden>
+        Your preferences could not be saved because the storage is full.
+        The preferences will reset on reload.
+      </p>
+
+      <fieldset>
+        <legend>Theme</legend>
+        <label><input type="radio" name="theme" value="light"> Light</label>
+        <label><input type="radio" name="theme" value="dark"> Dark</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Font Size</legend>
+        <label><input type="radio" name="font-size" value="small"> Small</label>
+        <label><input type="radio" name="font-size" value="medium"> Medium</label>
+        <label><input type="radio" name="font-size" value="large"> Large</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Font Family</legend>
+        <label><input type="radio" name="font-family" value="helvetica"> Helvetica</label>
+        <label><input type="radio" name="font-family" value="times-new-roman"> Times New Roman</label>
+        <label><input type="radio" name="font-family" value="apple-chancery"> Apple Chancery</label>
+      </fieldset>
+
+      <button id="reset-btn" type="button">Reset to Defaults</button>
+    </div>
 
     <div id="status-msg" aria-live="polite">
       <p id="loading-msg" hidden>Fetching information...</p>
@@ -22,7 +55,9 @@
       <p id="empty-msg" hidden>The chapter was not found.</p>
     </div>
 
-    <div id="chapter-container" aria-live="polite"></div>
+    <div id="chapter-container" aria-live="polite">
+      <article id="chapter-article"></article>
+    </div>
 
     <button id="previous">Previous Chapter</button>
     <button id="next">Next Chapter</button>

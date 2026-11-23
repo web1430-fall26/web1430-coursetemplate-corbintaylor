@@ -1,15 +1,16 @@
-// Renders the books and chapter to the DOM.
+// Renders the books and chapter to the DOM and includes fetch status messages.
 
 import { BOOK_FILTER, CHAPTER_FILTER, CHAPTER_CONTAINER, CHAPTER_ARTICLE, 
          CHAPTER_TITLE, CHAPTER_CONTENT, CHAPTER_COPYRIGHT, LOADING_MSG,
-         ERROR_MSG, EMPTY_MSG } from './const.js';
+         ERROR_MSG, EMPTY_MSG, STORAGE_WARNING } from './const.js';
 
 const bookSelect = document.getElementById(BOOK_FILTER);
 const chapterSelect = document.getElementById(CHAPTER_FILTER);
-const chapterContainer = document.getElementById(CHAPTER_CONTAINER);
+const chapterArticle = document.getElementById(CHAPTER_ARTICLE);
 const loadingMsg = document.getElementById(LOADING_MSG);
 const errorMsg = document.getElementById(ERROR_MSG);
 const emptyMsg = document.getElementById(EMPTY_MSG);
+const storageWarning = document.getElementById(STORAGE_WARNING);
 
 export function renderBookOptions(books) {
     // Renders each of the book options using a normalized array of books
@@ -37,10 +38,7 @@ export function renderChapterOptions(chapterCount) {
 
 export function renderChapter(chapter) {
     // Clears the chapter container and renders a new chapter
-    chapterContainer.textContent = '';
-
-    const chapterArticle = document.createElement('article');
-    chapterArticle.classList.add(CHAPTER_ARTICLE);
+    chapterArticle.textContent = '';
 
     const chapterTitle = document.createElement('h2');
     chapterTitle.classList.add(CHAPTER_TITLE);
@@ -55,7 +53,6 @@ export function renderChapter(chapter) {
     chapterCopyright.textContent = chapter.copyright;
 
     chapterArticle.append(chapterTitle, chapterContent, chapterCopyright);
-    chapterContainer.append(chapterArticle);
 }
 
 export function showLoading() {
@@ -90,5 +87,11 @@ export function hideMessages() {
 
 export function clearChapter() {
     // Clears the chapter container
-    chapterContainer.textContent = '';
+    chapterArticle.textContent = '';
+}
+
+export function showStorageWarning() {
+    if (storageWarning) {
+        storageWarning.hidden = false;
+    }
 }
